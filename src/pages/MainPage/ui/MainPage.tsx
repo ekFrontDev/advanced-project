@@ -1,5 +1,7 @@
+import cls from "./MainPage.module.scss";
+
 const MainPage = () => {
-  return <div>MAIN PAGE</div>;
+  return <div className={cls.main}>MAIN PAGE</div>;
 };
 
 export default MainPage;

@@ -1,5 +1,6 @@
+import cls from "./AboutPage.module.scss";
 const AboutPage = () => {
-  return <div>ABOUTE PAGE</div>;
+  return <div className={cls.about}>ABOUTE PAGE</div>;
 };
 
 export default AboutPage;
