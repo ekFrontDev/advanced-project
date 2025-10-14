@@ -3,6 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
+// import i18next from 'i18next';
 
 export default defineConfig([
     js.configs.recommended,
@@ -13,7 +14,12 @@ export default defineConfig([
             react,
             tseslint,
         },
-        languageOptions: { globals: globals.browser },
+        languageOptions: { 
+            globals: {
+                ...globals.browser,
+                ...globals.jest
+            }
+        },
         settings: {
             react: {
                 version: 'detect',
@@ -31,6 +37,7 @@ export default defineConfig([
             'react/react-in-jsx-scope': 'off',
             'react/prop-types': 'off',
             'no-console': 'warn',
+            // "i18next/no-literal-string": ["error", {markupOnly: true}] /пока не буду настраивать, потмоу что этот плагин конфликтует с 9 версией eslint
         },
     },
     {
