@@ -21,7 +21,6 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             theme={ThemeButton.CLEAR}
         >
             {t('Язык')}
-            jvgbjgbhjgjgj
         </Button>
     );
 };
