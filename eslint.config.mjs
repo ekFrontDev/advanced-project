@@ -37,11 +37,28 @@ export default defineConfig([
             'react/react-in-jsx-scope': 'off',
             'react/prop-types': 'off',
             'no-console': 'warn',
-            'max-len': ['error', {'ignoreComments': true}]
-            // "i18next/no-literal-string": ["error", {markupOnly: true}] /пока не буду настраивать, потмоу что этот плагин конфликтует с 9 версией eslint
+            'max-len': ['error', {'ignoreComments': true, code: 100}],
+
+            "i18next/no-literal-string": [
+                "error",
+                 {
+                    markupOnly: true,
+                    ingoreAttribute: ['data-testid']
+                }
+            ]
         },
     },
     {
         ignores: ['node_modules/**', 'build/**'],
     },
+    {
+        ovverrides: [
+            {
+                files: ['**/src/**/*.test.{ts,tsx}'],
+                rules: {
+                    "i18next/no-literal-string": 'off'
+                }
+            }
+        ]
+    }
 ]);
