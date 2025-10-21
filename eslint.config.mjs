@@ -1,9 +1,12 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
-// import i18next from 'i18next';
+// import i18next from 'eslint-plugin-i18next';
 
 export default defineConfig([
     js.configs.recommended,
@@ -13,8 +16,9 @@ export default defineConfig([
         plugins: {
             react,
             tseslint,
+            // i18next
         },
-        languageOptions: { 
+        languageOptions: {
             globals: {
                 ...globals.browser,
                 ...globals.jest
@@ -39,26 +43,22 @@ export default defineConfig([
             'no-console': 'warn',
             'max-len': ['error', {'ignoreComments': true, code: 100}],
 
-            "i18next/no-literal-string": [
-                "error",
-                 {
-                    markupOnly: true,
-                    ingoreAttribute: ['data-testid']
-                }
-            ]
+            // "i18next/no-literal-string": [
+            //     "error",
+            //         {
+            //             markupOnly: true,
+            //             ignoreAttribute: ['data-testid', 'to']
+            //         }
+            // ]
         },
     },
     {
         ignores: ['node_modules/**', 'build/**'],
     },
-    {
-        ovverrides: [
-            {
-                files: ['**/src/**/*.test.{ts,tsx}'],
-                rules: {
-                    "i18next/no-literal-string": 'off'
-                }
-            }
-        ]
-    }
+    // {
+    //     files: ['**/src/**/*.test.{ts,tsx}'],
+    //     rules: {
+    //         "i18next/no-literal-string": 'off'
+    //     }
+    // }
 ]);
